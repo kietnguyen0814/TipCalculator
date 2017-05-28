@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryTableViewController: UITableViewController {
 
+    //get all history
+    lazy var histories = [HistoryModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +22,27 @@ class HistoryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            for result in results{
+                let moneyHis = (result as AnyObject).value(forKey: "moneyInput") as? String
+                let percentHis = (result as AnyObject).value(forKey: "percentInput") as? String
+                let tipHis = (result as AnyObject).value(forKey: "tipInput") as? String
+                
+                let historyModel: HistoryModel = HistoryModel(moneyInit: moneyHis!, percentInit: percentHis!, tipInit: tipHis!)
+                histories.append(historyModel)
+            }
+        } catch {
+            print("Error")
+        }
+        
+        /*let student: Student = Student(named: textFieldName.text!, identify: textFieldID.text!, school: textFieldUni.text!, description: textViewDescript.text!, aged: String(describing: age), imaged: imgAddStudent.image!)*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +54,27 @@ class HistoryTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return histories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryTableViewCell
 
+        let historyModel = histories[indexPath.row]
         // Configure the cell...
+        cell.lblMoneyHis.text = historyModel.money
+        cell.lblPercentHis.text = historyModel.percent
+        cell.lblTipHis.text = historyModel.tip
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

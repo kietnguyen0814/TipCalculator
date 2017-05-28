@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -96,7 +97,6 @@ class ViewController: UIViewController {
     
     //MARK: - Button Calculate
     @IBAction func btnCalculate(_ sender: Any) {
-        
         if txtMoneyMain.text!.isEmpty || txtPercentMain.text!.isEmpty{
             //create alert
             let alert = UIAlertController(title: "Notification", message: "Please enter full information", preferredStyle: UIAlertControllerStyle.alert);
@@ -105,15 +105,50 @@ class ViewController: UIViewController {
             //show alert
             self.present(alert, animated: true, completion: nil);
         } else{
+            
+            //Calculating Tip Money
             moneyInput = Double(txtMoneyMain.text!)
             percentInput = Double(txtPercentMain.text!)
-            
             tipInput = (moneyInput * percentInput)/100
             txtTipMain.text = String(tipInput!)
+            
+            //Save data to CoreData
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let newHistory = NSEntityDescription.insertNewObject(forEntityName: "History", into: context) as NSManagedObject
+            newHistory.setValue(txtMoneyMain.text, forKey: "moneyInput")
+            newHistory.setValue(txtPercentMain.text, forKey: "percentInput")
+            newHistory.setValue(txtTipMain.text, forKey: "tipInput")
+            
+            do {
+                try context.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
+            }
+
         }
         
+    }
+    
+    
+    @IBAction func btnCheck(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
+        request.returnsObjectsAsFaults = false
         
+        //var results = context.execte
+        do {
+            let results = try context.fetch(request)
+            for result in results{
+                print((result as AnyObject).value(forKey: "tipInput")!)
+            }
+        } catch {
+            print("Error")
+        }
         
     }
+    
 }
 

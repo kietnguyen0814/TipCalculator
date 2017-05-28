@@ -19,6 +19,7 @@
 		2E7D51911EDB0DEE003C4608 /* DesignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51901EDB0DEE003C4608 /* DesignTextField.swift */; };
 		2E7D51931EDB0FE3003C4608 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51921EDB0FE3003C4608 /* DesignButton.swift */; };
 		2E7D51951EDB1C6D003C4608 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51941EDB1C6D003C4608 /* HistoryTableViewCell.swift */; };
+		2E7D51981EDB33C8003C4608 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51971EDB33C8003C4608 /* History.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2E7D51901EDB0DEE003C4608 /* DesignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignTextField.swift; sourceTree = "<group>"; };
 		2E7D51921EDB0FE3003C4608 /* DesignButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = "<group>"; };
 		2E7D51941EDB1C6D003C4608 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		2E7D51971EDB33C8003C4608 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		2E7D515A1EDB0749003C4608 /* TipCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				2E7D51961EDB33B3003C4608 /* Model */,
 				2E7D51651EDB074A003C4608 /* Assets.xcassets */,
 				2E7D515B1EDB0749003C4608 /* AppDelegate.swift */,
 				2E7D518E1EDB0D0E003C4608 /* Controller */,
@@ -154,6 +157,14 @@
 				2E7D51921EDB0FE3003C4608 /* DesignButton.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		2E7D51961EDB33B3003C4608 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E7D51971EDB33C8003C4608 /* History.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			files = (
 				2E7D51911EDB0DEE003C4608 /* DesignTextField.swift in Sources */,
 				2E7D518D1EDB0CFE003C4608 /* HistoryTableViewController.swift in Sources */,
+				2E7D51981EDB33C8003C4608 /* History.swift in Sources */,
 				2E7D51951EDB1C6D003C4608 /* HistoryTableViewCell.swift in Sources */,
 				2E7D51641EDB074A003C4608 /* TipCalculator.xcdatamodeld in Sources */,
 				2E7D51931EDB0FE3003C4608 /* DesignButton.swift in Sources */,
@@ -543,6 +555,7 @@
 				2E7D51851EDB074A003C4608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E7D51861EDB074A003C4608 /* Build configuration list for PBXNativeTarget "TipCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +564,7 @@
 				2E7D51881EDB074A003C4608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E7D51891EDB074A003C4608 /* Build configuration list for PBXNativeTarget "TipCalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +573,7 @@
 				2E7D518B1EDB074A003C4608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
