@@ -15,6 +15,10 @@
 		2E7D51691EDB074A003C4608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D51671EDB074A003C4608 /* LaunchScreen.storyboard */; };
 		2E7D51741EDB074A003C4608 /* TipCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51731EDB074A003C4608 /* TipCalculatorTests.swift */; };
 		2E7D517F1EDB074A003C4608 /* TipCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D517E1EDB074A003C4608 /* TipCalculatorUITests.swift */; };
+		2E7D518D1EDB0CFE003C4608 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D518C1EDB0CFE003C4608 /* HistoryTableViewController.swift */; };
+		2E7D51911EDB0DEE003C4608 /* DesignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51901EDB0DEE003C4608 /* DesignTextField.swift */; };
+		2E7D51931EDB0FE3003C4608 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51921EDB0FE3003C4608 /* DesignButton.swift */; };
+		2E7D51951EDB1C6D003C4608 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51941EDB1C6D003C4608 /* HistoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		2E7D517A1EDB074A003C4608 /* TipCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7D517E1EDB074A003C4608 /* TipCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorUITests.swift; sourceTree = "<group>"; };
 		2E7D51801EDB074A003C4608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E7D518C1EDB0CFE003C4608 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		2E7D51901EDB0DEE003C4608 /* DesignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignTextField.swift; sourceTree = "<group>"; };
+		2E7D51921EDB0FE3003C4608 /* DesignButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = "<group>"; };
+		2E7D51941EDB1C6D003C4608 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +107,10 @@
 		2E7D515A1EDB0749003C4608 /* TipCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				2E7D515B1EDB0749003C4608 /* AppDelegate.swift */,
-				2E7D515D1EDB0749003C4608 /* ViewController.swift */,
-				2E7D515F1EDB0749003C4608 /* Main.storyboard */,
 				2E7D51651EDB074A003C4608 /* Assets.xcassets */,
-				2E7D51671EDB074A003C4608 /* LaunchScreen.storyboard */,
+				2E7D515B1EDB0749003C4608 /* AppDelegate.swift */,
+				2E7D518E1EDB0D0E003C4608 /* Controller */,
+				2E7D518F1EDB0DD8003C4608 /* View */,
 				2E7D516A1EDB074A003C4608 /* Info.plist */,
 				2E7D51621EDB074A003C4608 /* TipCalculator.xcdatamodeld */,
 			);
@@ -126,6 +133,27 @@
 				2E7D51801EDB074A003C4608 /* Info.plist */,
 			);
 			path = TipCalculatorUITests;
+			sourceTree = "<group>";
+		};
+		2E7D518E1EDB0D0E003C4608 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E7D515D1EDB0749003C4608 /* ViewController.swift */,
+				2E7D518C1EDB0CFE003C4608 /* HistoryTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2E7D518F1EDB0DD8003C4608 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2E7D515F1EDB0749003C4608 /* Main.storyboard */,
+				2E7D51671EDB074A003C4608 /* LaunchScreen.storyboard */,
+				2E7D51941EDB1C6D003C4608 /* HistoryTableViewCell.swift */,
+				2E7D51901EDB0DEE003C4608 /* DesignTextField.swift */,
+				2E7D51921EDB0FE3003C4608 /* DesignButton.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E7D51911EDB0DEE003C4608 /* DesignTextField.swift in Sources */,
+				2E7D518D1EDB0CFE003C4608 /* HistoryTableViewController.swift in Sources */,
+				2E7D51951EDB1C6D003C4608 /* HistoryTableViewCell.swift in Sources */,
 				2E7D51641EDB074A003C4608 /* TipCalculator.xcdatamodeld in Sources */,
+				2E7D51931EDB0FE3003C4608 /* DesignButton.swift in Sources */,
 				2E7D515E1EDB0749003C4608 /* ViewController.swift in Sources */,
 				2E7D515C1EDB0749003C4608 /* AppDelegate.swift in Sources */,
 			);
