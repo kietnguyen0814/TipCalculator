@@ -11,8 +11,11 @@ import CoreData
 
 class HistoryTableViewController: UITableViewController {
 
-    //get all history
-    lazy var histories = [HistoryModel]()
+    /*//get all history
+    lazy var histories = [HistoryModel]()*/
+    
+    
+    var listHistory = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,7 @@ class HistoryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
@@ -31,12 +35,12 @@ class HistoryTableViewController: UITableViewController {
         do {
             let results = try context.fetch(request)
             for result in results{
-                let moneyHis = (result as AnyObject).value(forKey: "moneyInput") as? String
+                /*let moneyHis = (result as AnyObject).value(forKey: "moneyInput") as? String
                 let percentHis = (result as AnyObject).value(forKey: "percentInput") as? String
                 let tipHis = (result as AnyObject).value(forKey: "tipInput") as? String
                 
-                let historyModel: HistoryModel = HistoryModel(moneyInit: moneyHis!, percentInit: percentHis!, tipInit: tipHis!)
-                histories.append(historyModel)
+                let historyModel: HistoryModel = HistoryModel(moneyInit: moneyHis!, percentInit: percentHis!, tipInit: tipHis!)*/
+                listHistory.append(result as! NSManagedObject)
             }
         } catch {
             print("Error")
@@ -59,18 +63,23 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return histories.count
+        return listHistory.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryTableViewCell
 
-        let historyModel = histories[indexPath.row]
+        let historyModel = listHistory[indexPath.row]
+        
+        let moneyHis = historyModel.value(forKey: "moneyInput") as? String
+        let percentHis = historyModel.value(forKey: "percentInput") as? String
+        let tipHis = historyModel.value(forKey: "tipInput") as? String
+        
         // Configure the cell...
-        cell.lblMoneyHis.text = historyModel.money
-        cell.lblPercentHis.text = historyModel.percent
-        cell.lblTipHis.text = historyModel.tip
+        cell.lblMoneyHis.text = moneyHis
+        cell.lblPercentHis.text = percentHis
+        cell.lblTipHis.text = tipHis
 
         return cell
     }
@@ -84,17 +93,30 @@ class HistoryTableViewController: UITableViewController {
     }
     */
 
-    /*
+    //MARK: - Delete History
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        if editingStyle == UITableViewCellEditingStyle.delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            //context.delete(histories[indexPath.row])
+            //histories.remove(at: indexPath.row)
+            
+            
+            context.delete(listHistory[indexPath.row])
+            listHistory.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            do {
+                try context.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
+            }
+            tableView.reloadData()
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

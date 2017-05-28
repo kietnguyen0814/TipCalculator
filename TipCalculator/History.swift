@@ -6,6 +6,7 @@
 //  Copyright © 2017 Kiet Nguyen. All rights reserved.
 //
 
+    //Not Use
 import Foundation
 
 class HistoryModel: NSObject {

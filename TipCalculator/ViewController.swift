@@ -97,6 +97,8 @@ class ViewController: UIViewController {
     
     //MARK: - Button Calculate
     @IBAction func btnCalculate(_ sender: Any) {
+        txtMoneyMain.resignFirstResponder()
+        txtPercentMain.resignFirstResponder()
         if txtMoneyMain.text!.isEmpty || txtPercentMain.text!.isEmpty{
             //create alert
             let alert = UIAlertController(title: "Notification", message: "Please enter full information", preferredStyle: UIAlertControllerStyle.alert);
@@ -126,13 +128,12 @@ class ViewController: UIViewController {
             } catch {
                 fatalError("Failure to save context: \(error)")
             }
-
         }
         
     }
     
     
-    @IBAction func btnCheck(_ sender: Any) {
+    /*@IBAction func btnCheck(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
@@ -148,7 +149,7 @@ class ViewController: UIViewController {
             print("Error")
         }
         
-    }
+    }*/
     
 }
 
