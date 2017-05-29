@@ -5,7 +5,11 @@
         <attribute name="percentInput" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tipInput" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="PercentDefault" representedClassName="PercentDefault" syncable="YES" codeGenerationType="class">
+        <attribute name="percentDefault" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="History" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="PercentDefault" positionX="-63" positionY="9" width="128" height="60"/>
     </elements>
 </model>

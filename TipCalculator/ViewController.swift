@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var txtTipMain: DesignTextField!
     @IBOutlet weak var txtPercentMain: DesignTextField!
     
+    // user array to store current percent
+    var listPercent: [String]!
     //
     var moneyInput: Double!
     var percentInput: Double!
@@ -26,6 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         observerKeyboard()
         addDoneButtonOnKeyboard()
         //txtTipMain.isUserInteractionEnabled = false
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,9 +36,56 @@ class ViewController: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - View Will Appear
     override func viewWillAppear(_ animated: Bool) {
+        //when user change the default percent
         if DefaultPerCent.isLoadDataAgain {
             txtPercentMain.text = DefaultPerCent.defaultPercent
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            //Save data to CoreData
+            let newPercent = NSEntityDescription.insertNewObject(forEntityName: "PercentDefault", into: context) as NSManagedObject
+            newPercent.setValue(txtPercentMain.text, forKey: "percentDefault")
+            do {
+                try context.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
+            }
+            DefaultPerCent.isLoadDataAgain = false
+        }
+        // when user turn off app and relaunch
+        else {
+            /*let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PercentDefault")
+            request.returnsObjectsAsFaults = false
+            
+            //var results = context.execte
+            do {
+                let results = try context.fetch(request)
+                for result in results{
+                    print((result as AnyObject).value(forKey: "percentDefault")!)
+                }
+            } catch {
+                print("Error")
+            }*/
+            listPercent = []
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PercentDefault")
+            request.returnsObjectsAsFaults = false
+            do {
+                let results = try context.fetch(request)
+                for result in results{
+                    let perDefault = (result as AnyObject).value(forKey: "percentDefault") as! String
+                    listPercent.append(perDefault)
+                }
+                if listPercent.isEmpty {
+                    txtPercentMain.text = "0"
+                } else {
+                        txtPercentMain.text = listPercent[listPercent.endIndex-1]
+                }
+            } catch {
+                print("Error")
+            }
         }
         txtTipMain.text = ""
     }
@@ -54,6 +104,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         txtMoneyMain.resignFirstResponder()
     }
     
+    //NSNotificationCenter
     fileprivate func observerKeyboard(){
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
@@ -172,17 +223,18 @@ class ViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
+    //Test
     /*@IBAction func btnCheck(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PercentDefault")
         request.returnsObjectsAsFaults = false
         
         //var results = context.execte
         do {
             let results = try context.fetch(request)
             for result in results{
-                print((result as AnyObject).value(forKey: "tipInput")!)
+                print((result as AnyObject).value(forKey: "percentDefault")!)
             }
         } catch {
             print("Error")
