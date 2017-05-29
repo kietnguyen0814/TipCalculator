@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Check Table View Controller-->
+        <!--Percent History-->
         <scene sceneID="tdY-oq-pwS">
             <objects>
                 <tableViewController id="wfP-nR-Ccz" customClass="CheckTableViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,10 +41,11 @@
                             <outlet property="delegate" destination="wfP-nR-Ccz" id="6hG-fp-fhG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Percent History" id="mdf-Wl-L3n"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJx-rV-OEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="-295"/>
+            <point key="canvasLocation" x="1564" y="125"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -295,7 +296,7 @@
             </objects>
             <point key="canvasLocation" x="2296.8000000000002" y="125.4872563718141"/>
         </scene>
-        <!--History Table View Controller-->
+        <!--Tip History-->
         <scene sceneID="tVp-6I-cTv">
             <objects>
                 <tableViewController id="nJl-ou-BKN" customClass="HistoryTableViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -367,6 +368,7 @@
                             <outlet property="delegate" destination="nJl-ou-BKN" id="RdP-7k-aS9"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Tip History" id="Ur9-zn-P20"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkg-uc-1Cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

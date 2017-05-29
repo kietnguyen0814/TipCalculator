@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +20,59 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="zc2-P4-epQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fithcmute" translatesAutoresizingMaskIntoConstraints="NO" id="bS9-Cx-T89">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="rJd-m0-1LL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Tip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loB-iw-csl">
+                                <rect key="frame" x="74" y="213" width="242" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-ItalicMT" family="Courier New" pointSize="64"/>
+                                <color key="textColor" red="1" green="0.9857495020894802" blue="0.96993092535218761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nguyễn Anh Kiệt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Id-Gw1">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0SI-gP-Gpo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-ItalicMT" family="Courier New" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.98574950210000001" blue="0.96993092540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bS9-Cx-T89" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="0ry-fq-aLk"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="zc2-P4-epQ" secondAttribute="bottom" id="IZB-y0-QQs"/>
+                            <constraint firstItem="zc2-P4-epQ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Jl4-dM-b9K"/>
+                            <constraint firstItem="bS9-Cx-T89" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="SCa-DS-Brc"/>
+                            <constraint firstAttribute="trailing" secondItem="zc2-P4-epQ" secondAttribute="trailing" id="dEA-e2-x6f"/>
+                            <constraint firstItem="zc2-P4-epQ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="dyZ-s2-5qn"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="zc2-P4-epQ" secondAttribute="bottom" id="eyb-FH-neE"/>
+                            <constraint firstItem="zc2-P4-epQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fAO-7a-gIc"/>
+                            <constraint firstAttribute="trailing" secondItem="ESo-Id-Gw1" secondAttribute="trailing" id="fG6-bb-ggR"/>
+                            <constraint firstAttribute="trailing" secondItem="zc2-P4-epQ" secondAttribute="trailing" id="iFY-Af-0So"/>
+                            <constraint firstItem="zc2-P4-epQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="pos-nc-1IQ"/>
+                            <constraint firstItem="ESo-Id-Gw1" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="r9r-0O-Tol"/>
+                            <constraint firstAttribute="trailing" secondItem="bS9-Cx-T89" secondAttribute="trailing" id="uKw-cZ-e0g"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ESo-Id-Gw1" secondAttribute="bottom" id="ua1-Lw-GX1"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fithcmute" width="577" height="142"/>
+        <image name="launch" width="606" height="1136"/>
+    </resources>
 </document>
