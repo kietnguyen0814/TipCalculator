@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var txtMoneyMain: DesignTextField!
     @IBOutlet weak var txtTipMain: DesignTextField!
@@ -31,6 +31,13 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if DefaultPerCent.isLoadDataAgain {
+            txtPercentMain.text = DefaultPerCent.defaultPercent
+        }
+        txtTipMain.text = ""
     }
 
     
@@ -106,6 +113,12 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil));
             //show alert
             self.present(alert, animated: true, completion: nil);
+        } else if(txtMoneyMain.text! == "." || txtPercentMain.text == "."){
+            let alert = UIAlertController(title: "Notification", message: "Wrong Format!!!", preferredStyle: UIAlertControllerStyle.alert);
+            //add an action
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil));
+            //show alert
+            self.present(alert, animated: true, completion: nil);
         } else{
             
             //Calculating Tip Money
@@ -122,7 +135,6 @@ class ViewController: UIViewController {
             newHistory.setValue(txtMoneyMain.text, forKey: "moneyInput")
             newHistory.setValue(txtPercentMain.text, forKey: "percentInput")
             newHistory.setValue(txtTipMain.text, forKey: "tipInput")
-            
             do {
                 try context.save()
             } catch {
@@ -132,6 +144,33 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: - Function check input
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let inverseSet = NSCharacterSet(charactersIn:"0123456789").inverted
+        
+        let components = string.components(separatedBy: inverseSet)
+        
+        let filtered = components.joined(separator: "")
+        
+        if filtered == string {
+            return true
+        } else {
+            if string == "." {
+                let countdots = textField.text!.components(separatedBy:".").count - 1
+                if countdots == 0 {
+                    return true
+                }else{
+                    if countdots > 0 && string == "." {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            }else{
+                return false
+            }
+        }
+    }
     
     /*@IBAction func btnCheck(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

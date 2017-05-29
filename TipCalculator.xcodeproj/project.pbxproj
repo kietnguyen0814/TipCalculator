@@ -20,6 +20,8 @@
 		2E7D51931EDB0FE3003C4608 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51921EDB0FE3003C4608 /* DesignButton.swift */; };
 		2E7D51951EDB1C6D003C4608 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51941EDB1C6D003C4608 /* HistoryTableViewCell.swift */; };
 		2E7D51981EDB33C8003C4608 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D51971EDB33C8003C4608 /* History.swift */; };
+		2E936FDA1EDBD00900394774 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936FD91EDBD00900394774 /* SettingViewController.swift */; };
+		2E936FDC1EDBE24000394774 /* DefaultPerCent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936FDB1EDBE24000394774 /* DefaultPerCent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		2E7D51921EDB0FE3003C4608 /* DesignButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = "<group>"; };
 		2E7D51941EDB1C6D003C4608 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		2E7D51971EDB33C8003C4608 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		2E936FD91EDBD00900394774 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2E936FDB1EDBE24000394774 /* DefaultPerCent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPerCent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				2E7D515A1EDB0749003C4608 /* TipCalculator */,
+				2E7D51591EDB0749003C4608 /* Products */,
 				2E7D51721EDB074A003C4608 /* TipCalculatorTests */,
 				2E7D517D1EDB074A003C4608 /* TipCalculatorUITests */,
-				2E7D51591EDB0749003C4608 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,13 +113,10 @@
 		2E7D515A1EDB0749003C4608 /* TipCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				2E936FDD1EDBE72400394774 /* Other */,
 				2E7D51961EDB33B3003C4608 /* Model */,
-				2E7D51651EDB074A003C4608 /* Assets.xcassets */,
-				2E7D515B1EDB0749003C4608 /* AppDelegate.swift */,
 				2E7D518E1EDB0D0E003C4608 /* Controller */,
 				2E7D518F1EDB0DD8003C4608 /* View */,
-				2E7D516A1EDB074A003C4608 /* Info.plist */,
-				2E7D51621EDB074A003C4608 /* TipCalculator.xcdatamodeld */,
 			);
 			path = TipCalculator;
 			sourceTree = "<group>";
@@ -143,6 +144,7 @@
 			children = (
 				2E7D515D1EDB0749003C4608 /* ViewController.swift */,
 				2E7D518C1EDB0CFE003C4608 /* HistoryTableViewController.swift */,
+				2E936FD91EDBD00900394774 /* SettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -165,6 +167,18 @@
 				2E7D51971EDB33C8003C4608 /* History.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		2E936FDD1EDBE72400394774 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2E936FDB1EDBE24000394774 /* DefaultPerCent.swift */,
+				2E7D51621EDB074A003C4608 /* TipCalculator.xcdatamodeld */,
+				2E7D515B1EDB0749003C4608 /* AppDelegate.swift */,
+				2E7D51651EDB074A003C4608 /* Assets.xcassets */,
+				2E7D516A1EDB074A003C4608 /* Info.plist */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,8 +318,10 @@
 				2E7D51911EDB0DEE003C4608 /* DesignTextField.swift in Sources */,
 				2E7D518D1EDB0CFE003C4608 /* HistoryTableViewController.swift in Sources */,
 				2E7D51981EDB33C8003C4608 /* History.swift in Sources */,
+				2E936FDC1EDBE24000394774 /* DefaultPerCent.swift in Sources */,
 				2E7D51951EDB1C6D003C4608 /* HistoryTableViewCell.swift in Sources */,
 				2E7D51641EDB074A003C4608 /* TipCalculator.xcdatamodeld in Sources */,
+				2E936FDA1EDBD00900394774 /* SettingViewController.swift in Sources */,
 				2E7D51931EDB0FE3003C4608 /* DesignButton.swift in Sources */,
 				2E7D515E1EDB0749003C4608 /* ViewController.swift in Sources */,
 				2E7D515C1EDB0749003C4608 /* AppDelegate.swift in Sources */,

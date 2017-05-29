@@ -49,7 +49,7 @@
                                 <color key="tintColor" red="0.047058823529411764" green="0.25490196078431371" blue="0.89411764705882346" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.047058823529411764" green="0.25490196078431371" blue="0.89411764705882346" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="money"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -59,6 +59,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lfc-8d-GwY"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mED-MH-zMb" customClass="DesignButton" customModule="TipCalculator" customModuleProvider="target">
                                 <rect key="frame" x="16" y="448" width="343" height="50"/>
@@ -75,14 +78,14 @@
                                     <action selector="btnCalculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LhX-tl-uuH"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Percent" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AK-Kl-IN7" customClass="DesignTextField" customModule="TipCalculator" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter percent" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AK-Kl-IN7" customClass="DesignTextField" customModule="TipCalculator" customModuleProvider="target">
                                 <rect key="frame" x="16" y="301" width="343" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86758623580000005" green="0.87377224350000005" blue="0.89233026650000002" alpha="0.80439212332876719" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.047058823530000002" green="0.25490196079999999" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.25490196079999999" blue="0.89411764709999997" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="percent"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -92,6 +95,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Xvk-x4-WcR"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -106,7 +112,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="xQF-U3-Wwn">
-                        <barButtonItem key="leftBarButtonItem" image="setting" id="wBA-Lz-Zhj"/>
+                        <barButtonItem key="leftBarButtonItem" image="setting" id="wBA-Lz-Zhj">
+                            <connections>
+                                <segue destination="sYg-9Q-NcN" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="xGp-dd-4FO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="history" id="dty-AW-nFB">
                             <connections>
                                 <segue destination="nJl-ou-BKN" kind="show" identifier="History" id="8Q2-Wx-PzV"/>
@@ -121,7 +131,117 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160.8" y="-612.14392803598207"/>
+            <point key="canvasLocation" x="2100" y="-612.14392803598207"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="eEx-4c-gcX">
+            <objects>
+                <viewController id="sYg-9Q-NcN" customClass="SettingViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0s2-Ge-oYY"/>
+                        <viewControllerLayoutGuide type="bottom" id="tas-No-U6q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yp3-Tm-u61">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg4" translatesAutoresizingMaskIntoConstraints="NO" id="tnQ-hl-dLU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kIS-A6-8se">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="aq6-Hi-SHm">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8av-Uo-7Zo" customClass="DesignButton" customModule="TipCalculator" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="246" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.019607843137254902" green="0.44313725490196076" blue="0.89411764705882346" alpha="0.60145440924657534" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <state key="normal" title="5%">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="40"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btn5Percent:" destination="sYg-9Q-NcN" eventType="touchUpInside" id="FJo-9V-cxf"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-1d-nYH" customClass="DesignButton" customModule="TipCalculator" customModuleProvider="target">
+                                            <rect key="frame" x="150" y="246" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.021535415745562295" green="0.44443987343926111" blue="0.89233026650000002" alpha="0.60145440924657534" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <state key="normal" title="10%">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="40"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btn10Percent:" destination="sYg-9Q-NcN" eventType="touchUpInside" id="OpE-An-CjE"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSO-Tb-2EK" customClass="DesignButton" customModule="TipCalculator" customModuleProvider="target">
+                                            <rect key="frame" x="292" y="246" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.019607843137254902" green="0.44313725490196076" blue="0.89411764705882346" alpha="0.60145440920000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <state key="normal" title="15%">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="40"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btn15Percent:" destination="sYg-9Q-NcN" eventType="touchUpInside" id="S3A-27-e8j"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-Yf-FY3">
+                                            <rect key="frame" x="49" y="72" width="302" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Choose Default Percent">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.31801070052728464" blue="0.89411764705882346" alpha="0.8980522260273972" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="22" name="Courier"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbr-BC-wAt">
+                                            <rect key="frame" x="11" y="72" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button" image="close"/>
+                                            <connections>
+                                                <action selector="btnClose:" destination="sYg-9Q-NcN" eventType="touchUpInside" id="t8U-Qy-T9o"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNf-tn-H9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2296.8000000000002" y="125.4872563718141"/>
         </scene>
         <!--History Table View Controller-->
         <scene sceneID="tVp-6I-cTv">
@@ -198,7 +318,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkg-uc-1Cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888.8" y="-612.14392803598207"/>
+            <point key="canvasLocation" x="2828" y="-612.14392803598207"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XH7-1d-X8k">
@@ -216,11 +336,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9D-B5-tr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="424.80000000000001" y="-612.14392803598207"/>
+            <point key="canvasLocation" x="1137" y="-1335"/>
         </scene>
     </scenes>
     <resources>
         <image name="bg4" width="736" height="1308"/>
+        <image name="close" width="128" height="128"/>
         <image name="history" width="29" height="29"/>
         <image name="money" width="512" height="512"/>
         <image name="percent" width="512" height="512"/>
